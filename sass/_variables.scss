@@ -3,7 +3,25 @@
 
 @media screen and (min-width: 600px) {
     body {
+    
+
+    .site-header-container: {
+        display: flex;
+        flex-flow: nowrap;
+        
     }
+    .logo {
+        display: flex;
+        flex-flow: nowrap;
+        flex: 50%;
+    }
+
+    p {
+        display: flex;
+        flex-flow: nowrap;
+        flex: 50%;
+    }
+
     .copyright {
       display: flex;
       justify-content: center;
@@ -12,7 +30,7 @@
       bottom: 0px;
       align-content: flex-end;
     }
-  }
+  
 
   @media screen and (min-width: 1000px) {
     body {
