@@ -1,9 +1,10 @@
 
-.copyright {
+.copyright p {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     padding-top: 50px;
-    position: absolute;
-    bottom: 10px;
+    // position: relative;
+    // bottom: 0px;
+    align-content: flex-end;
 }

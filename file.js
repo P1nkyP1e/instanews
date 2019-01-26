@@ -1,4 +1,4 @@
-/Problem: Retrieve content from the NYT Top Stories API and add it to our site.
+//Problem: Retrieve content from the NYT Top Stories API and add it to our site.
 //If we dont get a successful response, let the user know/
 
 //1a) Listen for the select menu to change (watching value)
@@ -11,9 +11,13 @@
 //6) Hide the loader again
 
 //the same as document ready()
-$(function() {
- $('#selections'.on('change', function() {
-       const section = $(this).val();
+$(document).ready(function() {
+
+    $("#selections").on("change", function() {
+        const storySelector = $("#selections option:selected").val();
+        $(".loadAnimation").append(`<img src="assets/images/ajax-loader.gif">`);
+    });
+
     //   console.log(section); (take out )
 // if value is empty, return( easy 3 liner)
 //show loader here
@@ -22,33 +26,25 @@ $(function() {
 //make our ajax request/use the ajax method
 $.ajax({
    method: 'GET',
-   url: 'some url' //paste url + section + '.json?api-key=(fill in blank with key#',
-   dataType: 'json'
+   url:`https://api.nytimes.com/svc/topstories/v2/${storySelector}.json?api-key=AzWQPPnoeoce8OTsnO0jBU6R9LJ2UuGR`,
+    dataType: 'json'
 
 }).done(function(response) { //=is an object!
    console.log(response.results);
    //append all the things
 
-   //1. Fulter the data to only includee 12 aeticles with images.
+   //1. Filter the data to only includee 12 aeticles with images.
    //2. Create .each function to run a function for each article in response. results
 
    //3. For each article -create constans for image URL, title and link
    //4. Make a HTML string for the article, using the constans we just created do stuff here if it doesnt work out
    //5. append string to stories section.
-
+})
 .fail(function() {
    //do stuff here if it doesnt work out
-})
+
 
 }).always(function() {
-   //hide the loader
-
-}
-
+    $(".loadAnimation").remove();
 });
 });
-
-Message Input
-
-
-Message Saveen Toor
